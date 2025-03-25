@@ -14,17 +14,15 @@ function getComputerChoice() {
 function getPlayerChoice() {
     let playerChoice;
     do {
-        playerChoice = +prompt('Enter 1 - Rock, 2 - Paper, 3 - Scissors:');
-        switch (playerChoice) {
-            case 1:
-            case 2:
-            case 3:
-                return playerChoice;
-            default:
-                console.log('Invalid choice. Please choose 1, 2, or 3.');
+        playerChoice = Number(prompt('Enter 1 - Rock, 2 - Paper, 3 - Scissors:'));
+        if ([1, 2, 3].includes(playerChoice)) {
+            return playerChoice;
+        }
+        else {
+            console.log("Invalid choice! Please enter 1, 2, or 3.");
         }
     }
-    while (playerChoice !== 1 || playerChoice !== 2 || playerChoice !== 3);
+    while (playerChoice !== 1 && playerChoice !== 2 && playerChoice !== 3);
 }
 
 function playRound() {
@@ -33,6 +31,7 @@ function playRound() {
     let options = ["Rock", "Paper", "Scissors"];
     console.log(`Player chose: ${options[playerChoice - 1]}`);
     console.log(`Computer chose: ${options[computerChoice - 1]}`);
+
     // Check for tie
     if(playerChoice === computerChoice) {
         console.log("It's a tie!");
