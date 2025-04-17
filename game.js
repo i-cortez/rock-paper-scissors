@@ -15,11 +15,14 @@ function getPlayerChoice() {
     let playerChoice;
     do {
         playerChoice = Number(prompt('Enter 1 - Rock, 2 - Paper, 3 - Scissors:'));
-        if ([1, 2, 3].includes(playerChoice)) {
-            return playerChoice;
-        }
-        else {
-            console.log("Invalid choice! Please enter 1, 2, or 3.");
+        switch (playerChoice) {
+            case 1:
+            case 2:
+            case 3:
+                return playerChoice;
+            default:
+                console.log("Invalid choice! Please enter 1, 2, or 3.");
+                break;
         }
     }
     while (playerChoice !== 1 && playerChoice !== 2 && playerChoice !== 3);
